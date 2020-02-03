@@ -1,0 +1,1041 @@
+//Skapat av Mimmi Nordquist /mino1801
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin|Raleway:400,600,700|Roboto+Slab:400,700|Rock+Salt&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700|Roboto+Slab:400,700');
+//@import url('https://fonts.googleapis.com/css?family=Beth+Ellen|Merienda+One|Permanent+Marker|Rock+Salt|Walter+Turncoat&display=swap');
+
+$color1: hsla(222, 70%, 24%, 0.8); //#122B66; //header, footer, boxshadow form, buttons, toggle borders, toggle text
+$color1thick: hsla(222, 70%, 24%, 0.9);
+$color2: #072163; //links, sub menues
+$color3: hsla(185, 78%, 91%, 0.6); //background toggle
+$color4: #fffaf2; //backgroundcolor
+$color5: white; //menu, menu hover, menu active, text footer, text buttons
+$color6: #ffa500; //borders, hoover, text registrationbutton
+
+$textColor: #2f2c2c;
+$boxColor: #fefbfd; //box, form
+$buttonColor2: #d6f7fa;
+$buttonTextColor2: grey;
+$successColor: #00cd00;
+$shadow: 2px 3px 5px darkgrey;
+
+$font1: 'Roboto Slab', 'Times', serif; //headings
+$font2: 'Raleway', 'Verdana', sans-serif; //main font, toggle
+$font3: 'Verdana', sans-serif; //menu
+$font4: 'Libre Franklin', 'Verdana', sans-serif; //footer
+
+
+//START KOD
+html {
+	font-size: 62.5%; 
+	height: 100%;
+}
+
+body {
+  	background-color: $color4;
+	height: 100%;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font1;
+	line-height: 1.6;
+}
+
+h1 {
+	font-size: 2rem;
+	line-height: 1.4;
+	padding-bottom: 0.8rem;
+}
+
+h2 {
+	font-size: 1.7rem;
+}
+
+p, a {
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	color: $textColor;
+	padding-bottom: 1.5rem;
+}
+
+.clear {
+    clear: both;
+}
+
+
+//LÄNKAR
+a {
+	color: $color2;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+//OMGER
+// Gör så att footern hamnar längst ned/ följer med sidan
+#container {
+	display: flex;
+  	flex-direction: column;
+	min-height: 100vh;
+}
+
+.wrapper {
+	margin: 2.5rem 4rem;
+}
+
+//Bakgrundsfärg till posterna på myPrivatePage
+.colorPrivate {
+	background-color: $boxColor;
+	padding: 0 1rem 3rem 2rem;
+	margin: 1rem 0;
+	display: inline-block;
+	border-radius: 0.5rem;
+} 
+
+.colorPrivate u {
+	color: #122c68;
+}
+
+//Utformning inläggen från användare på startsidan
+.colorStartPage {
+	background-color: $boxColor;
+	padding: 0 1rem 1.5rem 2rem;
+	margin-bottom: 3rem;
+	display: block;
+	border-radius: 0.5rem;
+	width: 90%;
+	border: 3px solid $color1;
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	color: $textColor;
+}
+
+//Utformning inläggen presentationssidan
+.colorUserPage {
+	background-color: $boxColor;
+	padding: 0 1rem 0 2rem;
+	margin-bottom: 3rem;
+	display: block;
+	border-radius: 0.5rem;
+	width: 90%;
+	border: 2px solid $color1;
+}
+
+.colorUserPage u {
+	color: #122c68;
+}
+
+.titleColor {
+	color: #122C68;
+	text-decoration: underline;
+}
+
+#surroundButtons {
+	margin-top: 0.8rem;
+}
+
+#leftStartpage {
+	width: 70%;
+	float: left;
+	border-right: 3px solid $color2;
+}
+
+#registeredUsers {
+	width: 20%;
+	float: left;
+	margin-left: 3rem;
+}
+
+//Ger smalare läsbredd
+.oneThird {
+	width: 50rem;
+}
+
+//Lägger övrigt på sidan på samma avstånd som formulären
+.fourRem {
+	margin-left: 4rem;
+}
+
+
+//SIDANS ÖVRE DEL
+header {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+  	background-color: $color1;
+	height: 100px;
+	position: relative;
+	padding: 1rem 0;
+	top: 0px;
+}
+
+#companyName {
+    height: 110px; //80 innan
+	margin: auto 0 auto 1rem;
+	margin-left: 5rem; //fanns inte innan
+}
+
+//HAMBURGERMENYN
+#burgerImage {
+	margin-left: auto;
+	margin-top: -2rem;
+	padding-right: 5%;
+	height: 5rem;
+	cursor: pointer; 
+}
+
+.toggleNavigation {
+	width: 100%;
+}
+
+.toggleNavigation ul {
+	display: block;
+	overflow: hidden;
+	list-style: none;
+	background: $color3;
+	text-transform: uppercase;
+	width: 100%;
+	height: 0;
+}
+	
+//visar menyvalen med hamburgermenyn
+.toggleNavigation ul.open {
+	height: auto;
+}
+
+.toggleNavigation ul li {
+	float: none;
+	font-family: $font2;
+	text-align: right;
+	font-size: 1.7rem;
+}
+	
+.toggleNavigation a:link, .toggleNavigation a:visited, .toggleNavigation a:hover {
+	display: block;
+	border-bottom: 0.1em solid $color2;
+	color: $color2;
+	padding: 0;
+	padding-right: 2rem;
+	text-decoration: none;	
+	line-height: 2.7;
+}
+
+
+//DESKTOPMENYN
+#desktopNav {
+	margin-left: auto;
+	margin-right: 3rem;
+}
+
+#desktopNav a {
+	color: $color5;
+	display: flex;
+	font-size: 2.5rem;
+	font-family: $font3;
+	font-weight: 700;
+	align-items: flex-end;
+	padding: 0 2rem 1rem 2rem;
+	//Ger mer avstånd emellan utan att rutorna vid hover blir större
+	margin: 0.5rem; 
+}
+
+#desktopNav ul {
+	display: flex;
+}
+
+#desktopNav a:hover {
+	 color: $color5;
+	 border-bottom: 2px solid $color5;
+	 border-radius: 0.5rem;
+	 text-decoration: none;
+}
+
+#desktopNav li {
+	width: auto;
+	text-align: center;
+	position: relative;
+}
+
+
+// MESSAGES
+.errorMessage {
+	font-family: $font2;
+	font-size: 1.8rem;
+	line-height: 1.5;
+	color: $textColor;
+	padding: 1rem;
+	margin: 3rem 0;
+	border: 1px dotted $color2;
+	display: inline-block;
+}
+
+#notValidMessage, #notValidPassword {
+	font-family: $font2;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	color: $textColor;
+	margin: 0.8rem 0;
+	font-style: italic;
+	display: block;
+}
+
+#notValidInputFields {
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	font-weight: 600;
+	color: red;
+}
+
+.success p {
+	font-family: $font2;
+	font-size: 1.6rem;
+	color: $successColor;
+	padding: 0;
+	font-weight: 600;
+}
+
+
+//MIDDLE
+#suggestedBlogs {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-top: 2px groove $color1;
+	margin-top: 5rem;
+	padding-top: 0.8rem;
+	width: 100%
+}
+
+.suggestedBlog {
+	margin: 1rem 1.5rem;
+	padding: 1.2rem;
+	border-radius: 0.5rem;
+	border-left: 1px groove $color6;
+	border-bottom: 2px groove $color6;
+}
+
+.suggestedBlog:nth-child(odd) {
+	background-color: $boxColor;
+}
+
+.usersStartpage {
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.7;
+	color: $textColor;
+}
+
+
+// FOOTER
+#footerWrapper {
+	background-color: $color1thick;
+	flex-shrink: 0;
+}
+
+#footer {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+    margin: 0 6rem;
+	padding: 2rem 0;
+	color: $color5;
+}
+
+#footer ul li, #footer a {
+	font-family: $font4;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+
+#footer a {
+	color: $color5;
+	font-size: 1.4rem;
+	text-decoration: underline;
+}
+
+#footer a:hover {
+	color: $color6;
+}
+
+
+//ÖVRIGT
+//Ger mellanrum mellan diverse textstycken
+.separator {
+	height: 2rem;
+}
+
+.smallSeparator {
+	height: 0.5rem;
+}
+
+.largeSeparator {
+	height: 4rem;
+}
+
+.colorSeparatorStartpageTop, .colorSeparatorStartpageBottom {
+	height: 0.1rem;
+	background-color: $color1thick;
+	margin: 3.5rem 0 2.5rem 0;
+	width: 90%;
+}
+
+
+//FORMULÄR
+form {
+	background-color: $boxColor;
+	padding: 2rem 4rem;
+	margin: 0 0 1rem 0;
+	border-radius: 0.5rem;
+}
+
+.noColor form, .noColorSmallButton form {
+	background-color: inherit;
+}
+
+input, label, textarea {
+	font-family: $font2;
+	font-size: 1.3rem;
+	color: $textColor;
+	border: 1px solid $boxColor;
+	box-shadow: 0.2px 0.2px 0.2px 2px $color1;
+}
+
+label[for=approve] {
+	display: inline-block;
+	width: 80%;
+	border: none;
+	box-shadow: none;
+	margin: 2rem 0 5rem 0;
+}
+
+form p {
+	padding-bottom: 0.8rem;
+	line-height: 1.3;
+}
+
+textarea {
+	width: 100%;
+	height: 10rem;
+	border-radius: 0.5rem;
+	border: none;
+	padding-left: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+input[type="text"], input[type="password"] {
+	width: 100%;
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	border: none;
+	padding-left: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+input[type="textarea"] {
+	height: 10rem;
+}
+
+a.deleteButton, a.editButton, input[type="submit"], input[type="button"] {
+	padding: 1.5rem;
+	margin: 0 1rem 1rem 0;
+	color: $color5;
+	font-size: 1.8rem;
+	border-radius: 0.5rem;
+	box-shadow: $shadow;
+	cursor: pointer;
+}
+
+.noColorSmallButton input[type="submit"] { 
+	padding: 1rem;
+	font-size: 1.3rem;
+	margin-top: 0.3rem;
+	display: inline-block;
+}
+
+input[type="submit"] {
+	background: $color1;
+}
+
+input[type="button"] {
+	background: $buttonColor2;
+	color: $buttonTextColor2;
+}
+
+input[type="checkbox"] {
+	box-shadow: 1px 2px 2px darkgrey;
+}
+
+a.deleteButton {
+	background: $buttonColor2;
+	color: $buttonTextColor2;
+	color: $color1;
+	font-size: 1.6rem;
+	box-shadow: 1px 2px 2px $color1;
+	margin-left: 1rem; 
+}
+
+a.editButton {
+	background: $color1;
+	color: $color5;
+	font-size: 1.5rem;
+}
+
+
+//IMAGE
+#banner {
+	overflow: hidden;
+	height: 75rem;
+	width: 100%;
+	background-image: url(../includes/bilder/bannerHotAirBalloons.jpg);
+	background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+	position: relative;
+}
+
+#quoteBanner {
+	margin: 2rem;
+	margin-left: 4rem;
+}
+
+#quoteBanner p {
+	font-family: 'Rock Salt'; 
+	font-size: 2.5rem;
+	line-height: 1.9;
+	padding-bottom: 0;
+}
+
+.quoteBannerOdd {
+	margin-left: 2.5rem;
+}
+
+.bannerText {
+	background-color: $color1thick;
+	position: absolute;
+	bottom: 0;
+	font-style: italic;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.bannerSlogan {
+	padding: 3rem;
+	font-size: 3rem;
+	color: $color5;
+	margin: auto;
+	font-family: $font2;
+	line-height: 1.5;
+	display: inline-block;
+}
+
+
+.bannerRegisterButton {
+	display: inline-block;
+	background-color: $color1thick;
+	font-size: 3rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	margin-left: 1.5rem;
+	color: $color6;
+	border: 4px solid $color6;
+	font-style: normal;
+}
+
+.bannerRegisterButton:hover {
+	text-decoration: none;
+}
+
+#myProfileImage {
+	height: 20rem;
+	border-radius: 0.5rem;
+}
+
+#presentationImage {
+	height: 30rem;
+	border-radius: 0.5rem;
+}
+
+
+
+	@media screen and (min-width:1281px) {
+
+		//HAMBURGARMENYN
+		#burgerImage {
+			display: none;
+		}
+
+		.toggleNavigation {
+			display: none;
+		}
+
+		//DESKTOPMENYN
+		#desktopNav ul li {
+			padding-right: 3rem;
+		}
+
+		//OMGER
+		.wrapper {
+			width: 1200px;
+			margin: 2.5rem auto;
+		}
+
+		.colorSeparatorStartpageTop, .colorSeparatorStartpageBottom {
+			display: none;
+		}
+
+		//MIDDLE
+		#registeredUsersMobile {
+			display: none;
+		}
+		
+		#suggestedBlogs {
+			flex-direction: row;
+		}
+
+		#suggestedBlogsLeft, #suggestedBlogsRight {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		//FOOTER
+		#footer {
+			flex-direction: row;
+		}
+
+		#footerLeft {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		#footerRight {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		input[type="text"] {
+			width: 30%;
+		}
+
+		.oneThird input[type="text"] {
+			width: 100%;
+		}
+
+		textarea {
+			width: 75%;
+		}
+	}
+
+
+    @media screen and (min-width:961px) and (max-width: 1280px) {
+
+		//OMGER
+		header {
+			padding: 1rem 2rem 1rem 0;
+		}
+
+		.bannerSlogan, .bannerRegisterButton {
+			font-size: 2.7rem;
+		}
+
+		.colorSeparatorStartpageTop, .colorSeparatorStartpageBottom {
+			display: none;
+		}
+
+		//HAMBURGARMENYN
+		#burgerImage {
+			display: none;
+		}
+
+		.toggleNavigation {
+			display: none;
+		}
+
+		//DESKTOPMENYN
+		#desktopNav {
+			margin-right: 1rem;
+		}
+
+		#desktopNav a {
+			font-size: 2.3rem;
+			padding-right: 1rem;
+			padding-left: 1.5rem;
+		}
+
+		//MIDDLE
+		#registeredUsersMobile {
+			display: none;
+		}
+		
+		#suggestedBlogs {
+			flex-direction: row;
+		}
+
+		#suggestedBlogsLeft, #suggestedBlogsRight {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+        
+		//FOOTER
+		#footer {
+			flex-direction: row;
+		}
+
+		#footerLeft {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		#footerRight {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		//FORM
+		input[type="text"] {
+			width: 50%;
+		}
+
+		.oneThird input[type="text"] {
+			width: 100%;
+		}
+
+		textarea {
+			width: 80%;
+		}
+	}
+
+
+    @media screen and (min-width:751px) and (max-width: 960px) { 
+
+		
+		//OMGER
+		.bannerRegisterButton {
+			margin-top: 1.2rem;
+		}
+
+		.colorSeparatorStartpageTop, .colorSeparatorStartpageBottom {
+			display: none;
+		}
+
+		//HAMBURGARMENYN
+		.toggleNavigation a:link, .toggleNavigation a:visited, .toggleNavigation a:hover {
+			padding-right: 4rem;
+		}
+
+		//DESKTOPMENYN
+		#desktopNav {
+			display: none;
+		}
+
+		//MITTENDELEN AV SIDAN
+		#registeredUsersMobile {
+			display: none;
+		}
+		
+		//FOOTER
+		#footer {
+			flex-direction: row;
+		}
+
+		#footerLeft {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		#footerRight {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 40%;
+		}
+
+		//FORM
+		input[type="text"] {
+			width: 50%;
+		}
+
+		.oneThird input[type="text"] {
+			width: 100%;
+		}
+    }
+
+
+    @media screen and (min-width:500px) and (max-width:750px) { 
+
+		//HAMBURGARMENYN
+		.toggleNavigation a:link, .toggleNavigation a:visited, .toggleNavigation a:hover {
+			padding-right: 3rem;
+		}
+
+		#burgerImage {
+			height: 4.5rem;
+		}
+		
+		//DESKTOPMENYN
+		#desktopNav {
+			display: none;
+		}	
+
+		.oneThird {
+			width: 40rem;
+		}
+
+		//OMGER
+		.bannerSlogan {
+			font-size: 2.4rem;
+			padding: 2rem;
+		}
+
+		.bannerRegisterButton {
+			margin-top: 1.2rem;
+			font-size: 2.4rem;
+		}
+
+		.colorSeparatorStartpageTop {
+			display: none;
+		}
+
+		.colorSeparatorStartpageBottom {
+			height: 0.1rem;
+			background-color: $color1thick;
+			margin: 3.5rem 0 2.5rem 0;
+			width: 90%;
+		}
+
+		//MIDDLE
+		#leftStartpage {
+			width: 60%;
+			padding-right: 2rem;
+		}
+
+		#registeredUsers {
+			width: 20%;
+			margin-left: 2rem;
+		}
+
+		//FOOTER
+		#footer {
+			margin: 0 10rem; 
+		}
+	}
+	
+
+    @media screen and (min-width:350px) and (max-width:499px) { 
+		
+		
+		//HAMBURGARMENYN
+		.toggleNavigation a:link, .toggleNavigation a:visited, .toggleNavigation a:hover {
+			padding-right: 1.4rem;
+		}
+
+		#burgerImage {
+			height: 3rem;
+			margin-top: 0rem;
+		}
+
+		#companyName {
+			height: 70px;
+			margin-left: 2rem;
+			margin-top: 1.5rem;
+		}
+
+		#quoteBanner {
+			margin: 2rem;
+			margin-left: 2rem;
+		}
+		
+		#quoteBanner p {
+			font-size: 2rem;
+			line-height: 1.9;
+		}
+
+		//DESKTOPMENYN
+		#desktopNav {
+			display: none;
+		}		
+
+		//OMGER
+		.bannerSlogan {
+			font-size: 2.4rem;
+			padding: 2rem;
+		}
+
+		.bannerRegisterButton {
+			margin-top: 1.2rem;
+			font-size: 2.4rem;
+		}
+
+		//MIDDLE
+		#leftStartpage {
+			width: 100%;
+			border: none;
+			display: block;
+		}
+
+		#registeredUsers {
+			display: none;
+		}
+
+		#registeredUsersMobile {
+			display: block;
+			width: 90%;
+			margin: auto;
+		}
+
+		#suggestedBlogs {
+			flex-direction: column;
+			width: 90%;
+			border: none;
+		}
+
+		.suggestedBlog {
+			margin-top: 2rem;
+		}
+
+		.oneThird {
+			width: 90%;
+		}
+	}
+
+	
+    @media screen and (max-width:349px) { 
+		
+		h1 {
+			font-size: 2.2rem;
+			line-height: 1.4;
+			margin-bottom: 0.3rem;
+		}
+
+		p {
+			line-height: 1.6;
+		}
+		
+		//HAMBURGARMENYN
+		#burgerImage {
+			height: 3rem;
+			float: right;
+			margin-top: 3.5rem;
+			margin-left: 0;
+			padding-right: 1.5rem;
+		}
+
+		//SIDANS ÖVRE DEL
+		header {
+			display: block;
+		}
+
+		#companyName {
+			height: 50px;
+			margin-top: 2rem;
+			margin-left: 2rem;;
+		}
+
+		#quoteBanner {
+			margin: 2rem;
+			margin-left: 2rem;
+		}
+		
+		#quoteBanner p {
+			font-size: 1.5rem;
+			line-height: 1.9;
+		}
+		
+		//DESKTOPMENYN
+		#desktopNav {
+			display: none;
+		}
+
+		//OMGER
+		.bannerSlogan {
+			font-size: 2rem;
+			padding: 2rem;
+		}
+
+		.bannerRegisterButton {
+			margin-top: 1.2rem;
+			font-size: 1.8rem;
+		}
+
+		//MITTENDELEN AV SIDAN
+		a.deleteButton, a.editButton {
+			display: block;
+			width: 6.5rem;
+			margin: 1rem 0;
+			padding: 1rem;
+			font-size: 1.6rem;
+		}
+
+		a.deleteButton {
+			margin-top: 1.5rem;
+		}
+
+		#leftStartpage {
+			width: 100%;
+			border: none;
+			display: block;
+		}
+
+		#registeredUsers {
+			display: none;
+		}
+
+		#registeredUsersMobile {
+			display: block;
+			width: 90%;
+			margin: auto;
+		}
+
+		#suggestedBlogs {
+			flex-direction: column;
+			border: none;
+		}
+
+		.oneThird {
+			width: 90%;
+		}
+		
+		//FOOTER
+		#footer {
+            display: block;
+            margin: 0 4rem;
+		}
+		
+		#footerRight {
+			text-align: left;
+			padding-top: 0.8rem;
+		}
+		
+		#footer ul li {
+			font-family: $font4;
+			font-weight: 600;
+			font-size: 1.5rem;
+			padding: 0.3rem;
+		}
+		
+		#footer ul li a {
+			font-size: 1.55rem;
+		}
+    }
